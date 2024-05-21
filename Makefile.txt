@@ -1,0 +1,36 @@
+# Nombre del ejecutable
+pente.out: principal.o pantalla_principal.o pantalla_juego.o pantalla_username.o pantalla_computadora.o juego.o pantalla_ganador.o pantalla_ganador_jvj.o
+	gcc -o pente.out principal.o pantalla_principal.o pantalla_juego.o pantalla_username.o pantalla_computadora.o juego.o pantalla_ganador.o pantalla_ganador_jvj.o `pkg-config --libs gtk+-2.0`
+
+# Compilación de principal.c
+principal.o: principal.c
+	gcc -c principal.c `pkg-config --cflags gtk+-2.0`
+
+# Compilación de pantalla_principal.c
+pantalla_principal.o: pantalla_principal.c
+	gcc -c pantalla_principal.c `pkg-config --cflags gtk+-2.0`
+
+# Compilación de pantalla_juego.c
+pantalla_juego.o: pantalla_juego.c
+	gcc -c pantalla_juego.c `pkg-config --cflags gtk+-2.0`
+
+# Compilación de pantalla_username.c
+pantalla_username.o: pantalla_username.c
+	gcc -c pantalla_username.c `pkg-config --cflags gtk+-2.0`
+
+# Compilación de pantalla_computadora.c
+pantalla_computadora.o: pantalla_computadora.c
+	gcc -c pantalla_computadora.c `pkg-config --cflags gtk+-2.0`
+
+juego.o: juego.c
+	gcc -c juego.c `pkg-config --cflags gtk+-2.0`
+
+pantalla_ganador.o: pantalla_ganador.c
+	gcc -c pantalla_ganador.c `pkg-config --cflags gtk+-2.0`
+
+pantalla_ganador_jvj.o: pantalla_ganador_jvj.c
+	gcc -c pantalla_ganador_jvj.c `pkg-config --cflags gtk+-2.0`
+
+# Limpiar archivos objeto y el ejecutable
+clean:
+	rm -f *.o pente.out
